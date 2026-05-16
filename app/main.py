@@ -1,3 +1,6 @@
+import asyncio
+from random import random
+
 from fastapi import FastAPI
 from datetime import date
 
@@ -21,6 +24,8 @@ async def move(body: AITurnRequest):
   
   Recebe o estado completo de um turno da partida e devolve a jogada escolhida.
   """
+  # para simular um tempo de resposta mais realista, vou adicionar um delay aqui
+  await asyncio.sleep(random.choice([1.0, 1.5, 2, 2.5, 3]))
   if body.turn_phase == TurnPhase.SETUP:
     return choose_setup(body.board)
   else:
