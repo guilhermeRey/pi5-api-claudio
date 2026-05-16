@@ -1,5 +1,5 @@
 import asyncio
-from random import random
+import random
 
 from fastapi import FastAPI
 from datetime import date
